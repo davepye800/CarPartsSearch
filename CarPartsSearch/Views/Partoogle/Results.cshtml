@@ -1,0 +1,21 @@
+﻿
+@model CarPartsSearch.Model.SearchResults
+<div class="probootstrap-home-search-results  probootstrap-animate">
+    @Html.Partial("_SearchBox")
+</div>
+
+<div style=" margin-top:200px;padding-top:30px; padding-left:30px; padding-right:30px; padding-bottom:10px" class="row">
+    <div title="Select all for export" id="selectAllDiv" class="col-md-1 col-md-offset-11"></div>
+</div>
+<div style="padding-bottom:30px; padding-left:30px; padding-right:30px" class="row">
+    <div class="col-md-1 col-md-offset-11">
+        <input type="button" style="visibility:hidden" id="export" value="Export" />
+    </div>
+</div>
+<div id="results" style="padding:30px; margin-top:0px"></div>
+
+<script>
+    var resultsView = {};
+    resultsView.data = @Html.Raw(Json.Encode(Model.SearchResultList));
+</script>
+<input type="hidden" id="page" value="result">
